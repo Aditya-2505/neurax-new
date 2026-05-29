@@ -1,12 +1,15 @@
 import { Target, Eye, Heart, Brain, TrendingUp, Shield, Users } from 'lucide-react';
-import { BrainHands } from '../components/BrainViz';
 
 export default function AboutUs() {
   return (
     <div>
       {/* Hero */}
-      <section className="hero-gradient min-h-[420px] flex items-center pt-[70px]">
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+      <section className="hero-gradient min-h-[420px] flex items-center pt-[70px] relative overflow-hidden">
+        {/* Futuristic Background Overlays */}
+        <div className="absolute inset-0 grid-bg-overlay opacity-40 pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[80px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
           <div>
             <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">About NeuraX</p>
             <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-4">
@@ -22,16 +25,16 @@ export default function AboutUs() {
           </div>
           <div className="flex justify-center lg:justify-end">
             <div className="w-full max-w-lg">
-              <BrainHands />
+              <img src="/assets/about_hero.png" alt="Vision" className="w-full h-auto object-contain filter drop-shadow-[0_0_30px_rgba(59,130,246,0.25)] animate-float" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Mission / Vision / Values */}
-      <section className="bg-[#0d1b3e] py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-[rgba(59,130,246,0.2)] rounded-xl overflow-hidden">
+      <section className="py-16 bg-[#060814] border-t border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/5 rounded-2xl overflow-hidden glass-panel">
             {[
               {
                 icon: <Target size={28} className="text-blue-400" />,
@@ -51,19 +54,19 @@ export default function AboutUs() {
                 col2: ['Innovation', 'Compassion']
               }
             ].map((item, i) => (
-              <div key={i} className={`p-8 ${i < 2 ? 'border-b md:border-b-0 md:border-r border-[rgba(59,130,246,0.2)]' : ''}`}>
+              <div key={i} className={`p-8 ${i < 2 ? 'border-b md:border-b-0 md:border-r border-white/5' : ''}`}>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="icon-circle-sm flex-shrink-0">
+                  <div className="icon-circle-sm flex-shrink-0 text-blue-400">
                     {item.icon}
                   </div>
                   <h3 className="text-white font-bold text-lg">{item.title}</h3>
                 </div>
-                <div className="w-8 h-[2px] bg-blue-500 mb-4" />
+                <div className="w-8 h-[2px] bg-blue-600 mb-4 rounded-full" />
                 {item.isList ? (
                   <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                     {[...item.col1!, ...item.col2!].map((v, j) => (
                       <p key={j} className="text-gray-300 text-sm flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
                         {v}
                       </p>
                     ))}
@@ -78,52 +81,54 @@ export default function AboutUs() {
       </section>
 
       {/* Founder + Advisors */}
-      <section className="section-light py-16">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <section className="py-20 relative overflow-hidden bg-[#030712]">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
           {/* Founder's Story */}
-          <div className="bg-white rounded-xl overflow-hidden border border-gray-200">
-            <div className="relative h-48 overflow-hidden">
+          <div className="glass-panel rounded-2xl overflow-hidden flex flex-col justify-between h-full">
+            <div className="relative h-56 overflow-hidden border-b border-white/5">
               <img
-                src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=700"
+                src="/assets/founder_silhouette.png"
                 alt="Founder"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0e162d]/90 via-[#0e162d]/30 to-transparent" />
             </div>
-            <div className="p-8">
-              <p className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-3">Founder's Story</p>
-              <h2 className="text-gray-900 text-2xl font-bold mb-2">A Personal Mission to Drive Change</h2>
-              <div className="w-10 h-[3px] bg-blue-600 mb-5" />
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+            <div className="p-8 md:p-10">
+              <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-3">Founder's Story</p>
+              <h2 className="text-white text-2xl font-bold mb-2">A Personal Mission to Drive Change</h2>
+              <div className="w-12 h-[3px] bg-blue-600 mb-5 rounded-full" />
+              <p className="text-gray-400 text-sm leading-relaxed mb-4">
                 NeuraX was born from a deep passion for neuroscience and a first-hand understanding of the challenges patients and families face during recovery.
               </p>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed">
                 Our founder, with a background in medicine and a keen interest in neurorehabilitation, envisioned a world where technology and empathy come together to transform lives.
               </p>
             </div>
           </div>
 
           {/* Advisors */}
-          <div className="bg-white rounded-xl p-8 border border-gray-200">
-            <p className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-3">Advisors</p>
-            <h2 className="text-gray-900 text-2xl font-bold mb-2">Guided by Expertise</h2>
-            <div className="w-10 h-[3px] bg-blue-600 mb-5" />
-            <p className="text-gray-600 text-sm leading-relaxed mb-8">
-              We are supported by a diverse team of advisors and mentors with expertise in neurology, healthcare, technology, and strategy.
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div className="glass-panel rounded-2xl p-8 md:p-10 flex flex-col justify-between h-full">
+            <div>
+              <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-3">Advisors</p>
+              <h2 className="text-white text-2xl font-bold mb-2">Guided by Expertise</h2>
+              <div className="w-12 h-[3px] bg-blue-600 mb-5 rounded-full" />
+              <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                We are supported by a diverse team of advisors and mentors with expertise in neurology, healthcare, technology, and strategy.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
               {[
-                { icon: <Brain size={24} className="text-blue-500" />, title: 'Neurology', desc: 'Clinical excellence and guidance' },
-                { icon: <TrendingUp size={24} className="text-blue-500" />, title: 'Healthcare Strategy', desc: 'Building scalable healthcare solutions' },
-                { icon: <Shield size={24} className="text-blue-500" />, title: 'Technology', desc: 'AI, data science and innovation' },
-                { icon: <Users size={24} className="text-blue-500" />, title: 'Public Health', desc: 'Impact-driven healthcare' }
+                { icon: <Brain size={24} className="text-blue-450" />, title: 'Neurology', desc: 'Clinical excellence and guidance' },
+                { icon: <TrendingUp size={24} className="text-blue-450" />, title: 'Healthcare Strategy', desc: 'Building scalable healthcare solutions' },
+                { icon: <Shield size={24} className="text-blue-450" />, title: 'Technology', desc: 'AI, data science and innovation' },
+                { icon: <Users size={24} className="text-blue-450" />, title: 'Public Health', desc: 'Impact-driven healthcare' }
               ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center text-center">
-                  <div className="icon-circle mb-3">
+                <div key={i} className="flex flex-col items-center text-center p-4 bg-slate-900/40 border border-white/5 rounded-xl">
+                  <div className="icon-circle-sm mb-3 text-blue-400">
                     {item.icon}
                   </div>
-                  <h4 className="text-gray-900 font-bold text-sm mb-1">{item.title}</h4>
-                  <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                  <h4 className="text-white font-bold text-sm mb-1">{item.title}</h4>
+                  <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>

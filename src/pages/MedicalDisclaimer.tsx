@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Info, Heart, Shield, AlertTriangle, User, CheckCircle, RefreshCw, Phone } from 'lucide-react';
+import { Info, Heart, Shield, AlertTriangle, User, CheckCircle } from 'lucide-react';
 import { BrainHero } from '../components/BrainViz';
 
 const sections = [
@@ -69,15 +69,15 @@ export default function MedicalDisclaimer() {
         </div>
       </section>
 
-      <section className="section-light py-12">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <section className="py-16 relative overflow-hidden bg-[#030712]">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-4 gap-8 relative z-10">
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl border border-gray-200 p-4 sticky top-24">
+            <div className="glass-panel rounded-2xl p-4 sticky top-24">
               {sections.map((s, i) => (
                 <button
                   key={i}
                   onClick={() => setActive(i)}
-                  className={`w-full text-left text-sm py-2 px-3 rounded mb-1 transition-colors ${active === i ? 'bg-blue-600 text-white font-semibold' : 'text-gray-600 hover:bg-blue-50'}`}
+                  className={`w-full text-left text-sm py-2 px-3 rounded mb-1 transition-colors ${active === i ? 'bg-blue-600 text-white font-semibold' : 'text-gray-400 hover:bg-slate-900/60 hover:text-white'}`}
                 >
                   {i + 1}. {s}
                 </button>
@@ -86,34 +86,34 @@ export default function MedicalDisclaimer() {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="bg-white rounded-xl border border-gray-200 p-8">
+            <div className="glass-panel rounded-2xl p-8 md:p-10">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 {disclaimerItems.map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 bg-gray-50 rounded-lg p-4 border border-gray-100">
-                    <div className="mt-0.5 flex-shrink-0">{item.icon}</div>
+                  <div key={i} className="flex items-start gap-3 bg-slate-900/40 rounded-xl p-4 border border-white/5">
+                    <div className="mt-0.5 flex-shrink-0 text-blue-400">{item.icon}</div>
                     <div>
-                      <h3 className="text-gray-800 font-bold text-sm mb-1">{item.title}</h3>
-                      <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                      <h3 className="text-white font-bold text-sm mb-1">{item.title}</h3>
+                      <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200 mb-6 flex items-start gap-3">
-                <AlertTriangle size={18} className="text-yellow-500 flex-shrink-0 mt-0.5" />
-                <p className="text-gray-700 text-sm">
+              <div className="bg-yellow-950/20 rounded-lg p-4 border border-yellow-900/30 mb-6 flex items-start gap-3">
+                <AlertTriangle size={18} className="text-yellow-400 flex-shrink-0 mt-0.5 animate-pulse" />
+                <p className="text-yellow-250 text-sm">
                   NeuraX does not provide emergency medical services or replace professional clinical judgment. In case of a medical emergency, seek immediate assistance from a qualified healthcare provider.
                 </p>
               </div>
 
-              <div className="space-y-4 text-gray-600 text-sm leading-relaxed">
+              <div className="space-y-4 text-gray-350 text-sm leading-relaxed">
                 <div>
-                  <h3 className="text-gray-800 font-bold mb-1">7. Updates</h3>
+                  <h3 className="text-white font-bold mb-1">7. Updates</h3>
                   <p>Information on this platform may be updated periodically. We encourage users to review this disclaimer regularly.</p>
                 </div>
                 <div>
-                  <h3 className="text-gray-800 font-bold mb-1">8. Contact Us</h3>
-                  <p>For questions about this Medical Disclaimer, contact us at: <span className="text-blue-600">hello@neuraxcog.com</span></p>
+                  <h3 className="text-white font-bold mb-1">8. Contact Us</h3>
+                  <p>For questions about this Medical Disclaimer, contact us at: <span className="text-blue-400">hello@neuraxcog.com</span></p>
                 </div>
               </div>
             </div>

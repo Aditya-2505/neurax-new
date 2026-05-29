@@ -38,9 +38,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const isLegalPage = ['Privacy Policy', 'Terms of Use', 'Medical Disclaimer', 'Cookie Policy'].includes(currentPage);
-  const showFooter = currentPage === 'Home' || currentPage === 'Contact' || isLegalPage;
-
   return (
     <div className="min-h-screen bg-[#0a0e1a] flex flex-col">
       <Navbar currentPage={currentPage} setCurrentPage={handleSetPage} />

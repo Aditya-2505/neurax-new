@@ -1,3 +1,4 @@
-# neurax
+# NeuraX Cognitive Solutions
 
-[![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/sb1-4ubjf1sn)
+AI-enabled infrastructure for continuous neuro-recovery and better neurological outcomes.
+Driven by science. Built for the future.

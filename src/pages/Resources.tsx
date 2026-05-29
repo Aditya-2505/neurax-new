@@ -1,5 +1,4 @@
 import { FlaskConical, BookOpen, Shield, Globe, Brain, TrendingUp, Users, Cpu, ArrowRight } from 'lucide-react';
-import { BrainSide } from '../components/BrainViz';
 
 interface ResourcesProps {
   setCurrentPage: (page: string) => void;
@@ -9,8 +8,12 @@ export default function Resources({ setCurrentPage }: ResourcesProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="hero-gradient min-h-[420px] flex items-center pt-[70px]">
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+      <section className="hero-gradient min-h-[420px] flex items-center pt-[70px] relative overflow-hidden">
+        {/* Futuristic Background Overlays */}
+        <div className="absolute inset-0 grid-bg-overlay opacity-40 pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[80px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
           <div>
             <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">Research & Resources</p>
             <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-4">
@@ -23,16 +26,16 @@ export default function Resources({ setCurrentPage }: ResourcesProps) {
           </div>
           <div className="flex justify-center lg:justify-end">
             <div className="w-full max-w-lg">
-              <BrainSide />
+              <img src="/assets/glowing_brain.png" alt="Research" className="w-full h-auto object-contain filter drop-shadow-[0_0_30px_rgba(59,130,246,0.25)] animate-float" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Pillars */}
-      <section className="bg-[#0d1b3e] border-b border-[rgba(59,130,246,0.2)] py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-[rgba(59,130,246,0.2)] rounded-xl overflow-hidden">
+      <section className="py-16 bg-[#060814] border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/5 rounded-2xl overflow-hidden glass-panel">
             {[
               {
                 icon: <FlaskConical size={28} className="text-blue-400" />,
@@ -55,8 +58,8 @@ export default function Resources({ setCurrentPage }: ResourcesProps) {
                 desc: 'Informed by worldwide research to create solutions that are relevant, scalable, and impactful.'
               }
             ].map((item, i) => (
-              <div key={i} className={`p-7 flex items-start gap-4 ${i < 3 ? 'border-b lg:border-b-0 lg:border-r border-[rgba(59,130,246,0.2)]' : ''}`}>
-                <div className="icon-circle-sm flex-shrink-0">
+              <div key={i} className={`p-7 flex items-start gap-4 ${i < 3 ? 'border-b lg:border-b-0 lg:border-r border-white/5' : ''}`}>
+                <div className="icon-circle-sm flex-shrink-0 text-blue-400">
                   {item.icon}
                 </div>
                 <div>
@@ -70,43 +73,43 @@ export default function Resources({ setCurrentPage }: ResourcesProps) {
       </section>
 
       {/* Key Research Areas */}
-      <section className="section-light py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-gray-900 text-2xl font-bold text-center mb-10">Key Research Areas</h2>
+      <section className="py-20 bg-[#030712]">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <h2 className="text-white text-2xl md:text-3xl font-bold text-center mb-12">Key Research Areas</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {[
               {
-                icon: <Brain size={28} className="text-blue-500" />,
+                icon: <Brain size={28} className="text-blue-450" />,
                 title: 'Cognitive Assessment',
                 desc: 'Digital cognitive assessments for early detection and monitoring.'
               },
               {
-                icon: <TrendingUp size={28} className="text-blue-500" />,
+                icon: <TrendingUp size={28} className="text-blue-450" />,
                 title: 'Longitudinal Studies',
                 desc: 'Tracking cognitive recovery patterns over time to improve outcomes.'
               },
               {
-                icon: <Users size={28} className="text-blue-500" />,
+                icon: <Users size={28} className="text-blue-450" />,
                 title: 'Neurorehabilitation',
                 desc: 'Evidence-based rehabilitation strategies for better recovery and independence.'
               },
               {
-                icon: <Cpu size={28} className="text-blue-500" />,
+                icon: <Cpu size={28} className="text-blue-450" />,
                 title: 'AI in Neurology',
                 desc: 'Leveraging artificial intelligence to uncover insights and support clinical decisions.'
               },
               {
-                icon: <Globe size={28} className="text-blue-500" />,
+                icon: <Globe size={28} className="text-blue-450" />,
                 title: 'Public Health Impact',
                 desc: 'Building scalable solutions that improve access and outcomes at a population level.'
               }
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center">
-                <div className="icon-circle mb-4">
+              <div key={i} className="glass-card rounded-2xl p-6 flex flex-col items-center text-center">
+                <div className="icon-circle mb-4 text-blue-400">
                   {item.icon}
                 </div>
-                <h3 className="text-gray-900 font-bold text-sm mb-2">{item.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                <h3 className="text-white font-bold text-sm mb-2">{item.title}</h3>
+                <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -114,44 +117,29 @@ export default function Resources({ setCurrentPage }: ResourcesProps) {
       </section>
 
       {/* Collaboration + Institutions */}
-      <section className="section-light pb-16">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <section className="py-20 bg-[#030712] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
           {/* Collaboration CTA */}
-          <div className="bg-[#0d1b3e] rounded-xl p-8 flex items-center gap-6">
-            <div className="icon-circle flex-shrink-0">
-              <FlaskConical size={28} className="text-blue-400" />
+          <div className="glass-panel rounded-2xl p-8 flex items-center gap-6 h-full">
+            <div className="icon-circle flex-shrink-0 text-blue-450">
+              <FlaskConical size={28} />
             </div>
             <div>
-              <h3 className="text-white font-bold text-lg mb-2">Advancing Neuro-Recovery Through Collaboration.</h3>
-              <p className="text-gray-300 text-sm leading-relaxed mb-5">
+              <h3 className="text-white font-bold text-xl mb-2">Advancing Neuro-Recovery Through Collaboration.</h3>
+              <p className="text-gray-350 text-sm leading-relaxed mb-5">
                 We collaborate with leading hospitals, research institutions, and experts to drive meaningful change in neurological care.
               </p>
-              <button onClick={() => setCurrentPage('Contact')} className="btn-primary text-sm">
+              <button onClick={() => setCurrentPage('Contact')} className="btn-primary text-sm shadow-[0_4px_14px_rgba(37,99,235,0.25)]">
                 Collaborate With Us <ArrowRight size={16} />
               </button>
             </div>
           </div>
 
           {/* Institutions */}
-          <div className="bg-white rounded-xl p-8 border border-gray-200">
-            <h3 className="text-gray-900 font-bold text-base mb-2">Guided by Science. Supported by Global Institutions.</h3>
-            <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 mt-6 items-center">
-              {[
-                { name: 'World Health Organization', abbr: 'WHO' },
-                { name: 'ICMR', abbr: 'ICMR' },
-                { name: 'American Heart Association', abbr: 'AHA' },
-                { name: 'The Lancet', abbr: 'LANCET' },
-                { name: 'National Institutes of Health', abbr: 'NIH' }
-              ].map((org, i) => (
-                <div key={i} className="flex flex-col items-center text-center p-2">
-                  <div className="w-12 h-12 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center mb-2">
-                    <span className="text-blue-700 font-bold text-[9px] text-center leading-tight">{org.abbr}</span>
-                  </div>
-                  <p className="text-gray-500 text-[10px] text-center leading-tight">{org.name}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-gray-400 text-xs mt-4">References are indicative. NeuraX aligns with global research and clinical guidelines.</p>
+          <div className="glass-panel rounded-2xl p-8 h-full">
+            <h3 className="text-white font-bold text-base mb-4">Guided by Science. Supported by Global Institutions.</h3>
+            <img src="/assets/global_institutions.png" alt="Global Institutions" className="w-full h-auto mb-4 invert brightness-90 contrast-150 opacity-70" />
+            <p className="text-slate-500 text-[11px] mt-4">References are indicative. NeuraX aligns with global research and clinical guidelines.</p>
           </div>
         </div>
       </section>
