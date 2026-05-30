@@ -1,13 +1,55 @@
-import { Building2, Microscope, Users, Shield, FlaskConical, BookOpen, Brain, ArrowRight, Send } from 'lucide-react';
+import { Building2, Microscope, Users, Shield, FlaskConical, BookOpen, Brain, ArrowRight, Send, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 
-export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', org: '', subject: '', message: '' });
+// ==========================================
+// GOOGLE FORM CONFIGURATION
+// Configured for form link: https://forms.gle/nF4W38Rx4wbNTDpx6
+// ==========================================
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdZRnXV8DrHiOssMJaOZV2rMpcFeGPc3qE8dGYK1oMADyUgpw/formResponse";
+const FIELDS = {
+  name: "entry.973210114",
+  email: "entry.1154153673",
+  org: "entry.314301118",
+  subject: "entry.54993741",
+  interest: "entry.148570321",
+  message: "entry.2015168528"
+};
 
-  const handleSubmit = (e: React.FormEvent) => {
+export default function Contact() {
+  const [form, setForm] = useState({ name: '', email: '', org: '', subject: '', interest: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you! We will get back to you soon.');
-    setForm({ name: '', email: '', org: '', subject: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const formData = new URLSearchParams();
+      formData.append(FIELDS.name, form.name);
+      formData.append(FIELDS.email, form.email);
+      formData.append(FIELDS.org, form.org);
+      formData.append(FIELDS.subject, form.subject);
+      formData.append(FIELDS.interest, form.interest);
+      formData.append(FIELDS.message, form.message);
+
+      // Submit data via POST with no-cors to avoid CORS block policy
+      await fetch(GOOGLE_FORM_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: formData.toString()
+      });
+
+      alert("Thank you! Your message has been submitted successfully.");
+      setForm({ name: "", email: "", org: "", subject: "", interest: "", message: "" });
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Something went wrong. Please try again or email hello@neuraxcog.com directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -150,6 +192,21 @@ export default function Contact() {
                 value={form.subject}
                 onChange={e => setForm({...form, subject: e.target.value})}
               />
+              <select
+                value={form.interest}
+                onChange={e => setForm({...form, interest: e.target.value})}
+                className={form.interest ? "text-white" : "text-[#4b5563]"}
+              >
+                <option value="">Primary Area of Interest (Optional)</option>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Product/Service Demo Request">Product/Service Demo Request</option>
+                <option value="Technical Support">Technical Support</option>
+                <option value="Partnership Opportunities">Partnership Opportunities</option>
+                <option value="Media/Press Inquiry">Media/Press Inquiry</option>
+                <option value="Billing/Account Inquiry">Billing/Account Inquiry</option>
+                <option value="Career Opportunities">Career Opportunities</option>
+                <option value="Other">Other</option>
+              </select>
               <textarea
                 placeholder="Your Message"
                 rows={5}
@@ -157,8 +214,16 @@ export default function Contact() {
                 onChange={e => setForm({...form, message: e.target.value})}
                 required
               />
-              <button type="submit" className="btn-primary justify-center mt-2 shadow-[0_4px_14px_rgba(37,99,235,0.25)]">
-                Send Message <Send size={16} />
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="btn-primary justify-center mt-2 shadow-[0_4px_14px_rgba(37,99,235,0.25)] disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <>Sending... <Loader2 size={16} className="animate-spin" /></>
+                ) : (
+                  <>Send Message <Send size={16} /></>
+                )}
               </button>
             </form>
           </div>
