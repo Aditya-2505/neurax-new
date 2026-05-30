@@ -8,16 +8,18 @@ export default function Technology({ setCurrentPage }: TechnologyProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-[70px] relative overflow-hidden bg-[#010718] w-full">
+      <section className="pt-[70px] relative overflow-hidden bg-black w-full">
         {/* Wrapper to ensure perfect horizontal alignment and compact spacing */}
         <div className="relative w-full h-[380px] md:h-[460px] lg:h-[520px] flex items-center overflow-hidden">
           {/* Background Image Banner */}
-          <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#010718]">
+          <div className="absolute inset-0 z-0 select-none pointer-events-none bg-black">
             <img 
               src="/assets/technology_bg.webp" 
               alt="Technology Background" 
               className="w-full h-full object-contain object-right opacity-100" 
             />
+            {/* Gradient overlay to cover text with #00081B and fade seamlessly before the image */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#00081B] via-[#00081B] to-transparent w-full lg:w-[60%]" />
           </div>
 
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
@@ -38,7 +40,7 @@ export default function Technology({ setCurrentPage }: TechnologyProps) {
       </section>
 
       {/* Core Technology Pillars */}
-      <section className="py-20 relative overflow-hidden bg-[#060814] border-t border-b border-white/5">
+      <section className="py-20 relative overflow-hidden bg-[#000718]">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
           {[
             {
@@ -75,7 +77,7 @@ export default function Technology({ setCurrentPage }: TechnologyProps) {
       </section>
 
       {/* Future Section */}
-      <section className="py-20 relative overflow-hidden bg-[#030712]">
+      <section className="py-20 relative overflow-hidden bg-[#000718]">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-4 gap-8 items-start relative z-10">
           {/* Left text */}
           <div className="lg:col-span-1">
@@ -94,17 +96,17 @@ export default function Technology({ setCurrentPage }: TechnologyProps) {
           <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
-                img: '/assets/smart_stylus_transparent_v1.png',
+                img: '/assets/stylus.webp',
                 title: 'Smart Neuro-Stylus',
                 desc: 'Next-gen digital tools designed to capture cognitive interactions naturally and accurately.'
               },
               {
-                img: '/assets/neuro_watch_transparent_v1.png',
+                img: '/assets/werables.webp',
                 title: 'Neuro-Monitoring Wearables',
                 desc: 'Wearable technology for continuous monitoring of neurological and behavioral indicators.'
               },
               {
-                img: '/assets/connected_ecosystem_transparent_v1.png',
+                img: '/assets/ecosystem.webp',
                 title: 'Connected Ecosystem',
                 desc: 'An integrated ecosystem connecting patients, clinicians, and care providers seamlessly.'
               }
@@ -126,7 +128,7 @@ export default function Technology({ setCurrentPage }: TechnologyProps) {
       </section>
 
       {/* Security Banner */}
-      <section className="py-8 relative overflow-hidden bg-[#060814] border-t border-white/5">
+      <section className="py-8 relative overflow-hidden bg-[#000718]">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
           <div className="flex items-center gap-4">
             <div className="icon-circle-sm flex-shrink-0">

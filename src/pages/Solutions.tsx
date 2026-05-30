@@ -8,16 +8,18 @@ export default function Solutions({ setCurrentPage }: SolutionsProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-[70px] relative overflow-hidden bg-[#000a1e] w-full">
+      <section className="pt-[70px] relative overflow-hidden bg-[#000718] w-full">
         {/* Wrapper to ensure perfect horizontal alignment and compact spacing */}
         <div className="relative w-full h-[380px] md:h-[460px] lg:h-[520px] flex items-center overflow-hidden">
           {/* Background Image Banner */}
-          <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#000a1e]">
+          <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#000718]">
             <img 
               src="/assets/solution_bg.webp" 
               alt="Solutions Background" 
               className="w-full h-full object-contain object-right opacity-100" 
             />
+            {/* Gradient overlay to cover text with #000718 and fade seamlessly before the image */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#000718] via-[#000718] to-transparent w-full lg:w-[60%]" />
           </div>
 
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
@@ -38,7 +40,7 @@ export default function Solutions({ setCurrentPage }: SolutionsProps) {
       </section>
 
       {/* Solution Cards */}
-      <section className="py-20 relative overflow-hidden bg-[#030712]">
+      <section className="py-20 relative overflow-hidden bg-[#000718]">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
           {[
             {
@@ -80,7 +82,7 @@ export default function Solutions({ setCurrentPage }: SolutionsProps) {
       </section>
 
       {/* Bottom Banner */}
-      <section className="py-12 relative overflow-hidden bg-[#060814] border-t border-b border-white/5">
+      <section className="py-12 relative overflow-hidden bg-[#000718]">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
           <div className="flex items-center gap-6">
             <div className="hidden md:block">
