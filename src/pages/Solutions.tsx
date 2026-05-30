@@ -10,7 +10,7 @@ export default function Solutions({ setCurrentPage }: SolutionsProps) {
       {/* Hero */}
       <section className="pt-[70px] relative overflow-hidden bg-[#000a1e] w-full">
         {/* Wrapper to ensure perfect horizontal alignment and compact spacing */}
-        <div className="relative w-full py-6 md:py-8 lg:py-10 flex items-center">
+        <div className="relative w-full h-[380px] md:h-[460px] lg:h-[520px] flex items-center overflow-hidden">
           {/* Background Image Banner */}
           <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#000a1e]">
             <img 
