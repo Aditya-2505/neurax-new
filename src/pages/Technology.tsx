@@ -8,60 +8,31 @@ export default function Technology({ setCurrentPage }: TechnologyProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="hero-gradient min-h-[420px] flex items-center pt-[70px] relative overflow-hidden">
-        {/* Futuristic Background Overlays */}
-        <div className="absolute inset-0 grid-bg-overlay opacity-40 pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[80px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
-          <div>
-            <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">Our Technology</p>
-            <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-4">
-              The Intelligence Layer Behind Recovery
-            </h1>
-            <div className="w-10 h-[3px] bg-blue-600 mb-6" />
-            <p className="text-gray-300 text-base leading-relaxed max-w-md">
-              NeuraX leverages advanced AI, data science, and neuroscience to deliver intelligent solutions for continuous cognitive recovery and better neurological outcomes.
-            </p>
+      <section className="pt-[70px] relative overflow-hidden bg-[#010718] w-full">
+        {/* Wrapper to ensure perfect horizontal alignment and compact spacing */}
+        <div className="relative w-full py-6 md:py-8 lg:py-10 flex items-center">
+          {/* Background Image Banner */}
+          <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#010718]">
+            <img 
+              src="/assets/technology_bg.webp" 
+              alt="Technology Background" 
+              className="w-full h-full object-contain object-right opacity-100" 
+            />
           </div>
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-lg">
-              <img src="/assets/glowing_brain.png" alt="AI Brain Technology" className="w-full h-auto object-contain filter drop-shadow-[0_0_40px_rgba(59,130,246,0.3)] animate-float" />
-              
-              {/* Floating Panel 1 */}
-              <div className="hidden md:block floating-panel panel-1 absolute bg-slate-900/60 backdrop-blur-md border border-[rgba(59,130,246,0.15)] rounded-lg p-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-20 animate-float" style={{ animationDelay: '-1s' }}>
-                <h6 className="text-[10px] text-gray-400 uppercase tracking-wider mb-2 font-medium">Cognitive Insights</h6>
-                <div className="h-10 mt-2 flex items-end gap-1">
-                  <div className="w-[15%] h-[30%] bg-blue-500 rounded-sm"></div>
-                  <div className="w-[15%] h-[50%] bg-blue-500 rounded-sm"></div>
-                  <div className="w-[15%] h-[40%] bg-blue-500 rounded-sm"></div>
-                  <div className="w-[15%] h-[70%] bg-blue-500 rounded-sm"></div>
-                  <div className="w-[15%] h-[60%] bg-blue-500 rounded-sm"></div>
-                  <div className="w-[15%] h-[90%] bg-white rounded-sm animate-pulse"></div>
-                </div>
-              </div>
 
-              {/* Floating Panel 2 */}
-              <div className="hidden md:block floating-panel panel-2 absolute bg-slate-900/60 backdrop-blur-md border border-[rgba(59,130,246,0.15)] rounded-lg p-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-20 animate-float" style={{ animationDelay: '-3s' }}>
-                <h6 className="text-[10px] text-gray-400 uppercase tracking-wider mb-1 font-medium">Recovery Progress</h6>
-                <div className="text-xl font-bold text-white">72%</div>
-                <div className="h-1.5 w-full bg-slate-700/50 rounded-full mt-2 overflow-hidden">
-                  <div className="h-full bg-blue-500 rounded-full w-[72%]"></div>
-                </div>
-              </div>
-
-              {/* Floating Panel 3 */}
-              <div className="hidden md:block floating-panel panel-3 absolute bg-slate-900/60 backdrop-blur-md border border-[rgba(59,130,246,0.15)] rounded-lg p-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-20 animate-float" style={{ animationDelay: '-5s' }}>
-                <h6 className="text-[10px] text-gray-400 uppercase tracking-wider mb-2 font-medium">Risk Score</h6>
-                <div className="flex gap-1 items-end h-10 mt-2">
-                  <div className="flex-1 h-[30%] bg-slate-700/50 rounded-sm"></div>
-                  <div className="flex-1 h-[40%] bg-slate-700/50 rounded-sm"></div>
-                  <div className="flex-1 h-[50%] bg-slate-700/50 rounded-sm"></div>
-                  <div className="flex-1 h-[60%] bg-blue-500 rounded-sm"></div>
-                  <div className="flex-1 h-[70%] bg-slate-700/50 rounded-sm"></div>
-                </div>
-              </div>
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
+            <div>
+              <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">Our Technology</p>
+              <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-4">
+                The Intelligence Layer Behind Recovery
+              </h1>
+              <div className="w-10 h-[3px] bg-blue-600 mb-6" />
+              <p className="text-gray-300 text-base leading-relaxed max-w-md">
+                NeuraX leverages advanced AI, data science, and neuroscience to deliver intelligent solutions for continuous cognitive recovery and better neurological outcomes.
+              </p>
             </div>
+            {/* Empty right column to let the background illustration show through on the right */}
+            <div className="hidden lg:block" />
           </div>
         </div>
       </section>
@@ -123,17 +94,17 @@ export default function Technology({ setCurrentPage }: TechnologyProps) {
           <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
-                img: '/assets/smart_stylus.png',
+                img: '/assets/smart_stylus_transparent_v1.png',
                 title: 'Smart Neuro-Stylus',
                 desc: 'Next-gen digital tools designed to capture cognitive interactions naturally and accurately.'
               },
               {
-                img: '/assets/neuro_watch.png',
+                img: '/assets/neuro_watch_transparent_v1.png',
                 title: 'Neuro-Monitoring Wearables',
                 desc: 'Wearable technology for continuous monitoring of neurological and behavioral indicators.'
               },
               {
-                img: '/assets/connected_ecosystem.png',
+                img: '/assets/connected_ecosystem_transparent_v1.png',
                 title: 'Connected Ecosystem',
                 desc: 'An integrated ecosystem connecting patients, clinicians, and care providers seamlessly.'
               }

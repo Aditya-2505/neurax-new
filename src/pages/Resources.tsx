@@ -8,26 +8,31 @@ export default function Resources({ setCurrentPage }: ResourcesProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="hero-gradient min-h-[420px] flex items-center pt-[70px] relative overflow-hidden">
-        {/* Futuristic Background Overlays */}
-        <div className="absolute inset-0 grid-bg-overlay opacity-40 pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[80px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
-          <div>
-            <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">Research & Resources</p>
-            <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-4">
-              Science-Backed.<br />Evidence-Driven.
-            </h1>
-            <div className="w-10 h-[3px] bg-blue-600 mb-6" />
-            <p className="text-gray-300 text-base leading-relaxed max-w-md">
-              NeuraX is grounded in neuroscience, driven by research, and committed to advancing the future of neuro-recovery through innovation and clinical validation.
-            </p>
+      <section className="pt-[70px] relative overflow-hidden bg-[#000414] w-full">
+        {/* Wrapper to ensure perfect horizontal alignment and compact spacing */}
+        <div className="relative w-full py-6 md:py-8 lg:py-10 flex items-center">
+          {/* Background Image Banner */}
+          <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#000414]">
+            <img 
+              src="/assets/resources_bg.webp" 
+              alt="Resources Background" 
+              className="w-full h-full object-contain object-right opacity-100" 
+            />
           </div>
-          <div className="flex justify-center lg:justify-end">
-            <div className="w-full max-w-lg">
-              <img src="/assets/glowing_brain.png" alt="Research" className="w-full h-auto object-contain filter drop-shadow-[0_0_30px_rgba(59,130,246,0.25)] animate-float" />
+
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
+            <div>
+              <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">Research & Resources</p>
+              <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-4">
+                Science-Backed.<br />Evidence-Driven.
+              </h1>
+              <div className="w-10 h-[3px] bg-blue-600 mb-6" />
+              <p className="text-gray-300 text-base leading-relaxed max-w-md">
+                NeuraX is grounded in neuroscience, driven by research, and committed to advancing the future of neuro-recovery through innovation and clinical validation.
+              </p>
             </div>
+            {/* Empty right column to let the background illustration show through on the right */}
+            <div className="hidden lg:block" />
           </div>
         </div>
       </section>
@@ -136,10 +141,28 @@ export default function Resources({ setCurrentPage }: ResourcesProps) {
           </div>
 
           {/* Institutions */}
-          <div className="glass-panel rounded-2xl p-8 h-full">
-            <h3 className="text-white font-bold text-base mb-4">Guided by Science. Supported by Global Institutions.</h3>
-            <img src="/assets/global_institutions.png" alt="Global Institutions" className="w-full h-auto mb-4 invert brightness-90 contrast-150 opacity-70" />
-            <p className="text-slate-500 text-[11px] mt-4">References are indicative. NeuraX aligns with global research and clinical guidelines.</p>
+          <div className="glass-panel rounded-2xl p-8 h-full flex flex-col justify-between">
+            <div>
+              <h3 className="text-white font-bold text-base mb-4">Guided by Science. Supported by Global Institutions.</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-6">
+                <div className="bg-white rounded-lg p-2.5 flex items-center justify-center h-16 shadow-sm hover:scale-105 transition-transform duration-300">
+                  <img src="/assets/who.webp" alt="World Health Organization" className="max-h-full max-w-full object-contain" />
+                </div>
+                <div className="bg-white rounded-lg p-2.5 flex items-center justify-center h-16 shadow-sm hover:scale-105 transition-transform duration-300">
+                  <img src="/assets/icmr.webp" alt="Indian Council of Medical Research (ICMR)" className="max-h-full max-w-full object-contain" />
+                </div>
+                <div className="bg-white rounded-lg p-2.5 flex items-center justify-center h-16 shadow-sm hover:scale-105 transition-transform duration-300">
+                  <img src="/assets/america.webp" alt="American Heart Association" className="max-h-full max-w-full object-contain" />
+                </div>
+                <div className="bg-white rounded-lg p-2.5 flex items-center justify-center h-16 shadow-sm hover:scale-105 transition-transform duration-300">
+                  <img src="/assets/lancet.webp" alt="The Lancet" className="max-h-full max-w-full object-contain" />
+                </div>
+                <div className="bg-white rounded-lg p-2.5 flex items-center justify-center h-16 shadow-sm hover:scale-105 transition-transform duration-300 col-span-2 sm:col-span-1">
+                  <img src="/assets/nih.webp" alt="National Institutes of Health (NIH)" className="max-h-full max-w-full object-contain" />
+                </div>
+              </div>
+            </div>
+            <p className="text-slate-500 text-[11px] mt-6">References are indicative. NeuraX aligns with global research and clinical guidelines.</p>
           </div>
         </div>
       </section>

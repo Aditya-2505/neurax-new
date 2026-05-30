@@ -6,7 +6,7 @@ interface HomeProps {
 }
 
 export default function Home({ setCurrentPage }: HomeProps) {
-  const [activeStep, setActiveStep] = useState(2); // Default to Clinical Validation (index 2)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const steps = [
     { icon: <Settings size={20} />, label: 'Research & Development', desc: 'Building and refining our technologies with scientific rigor.' },
@@ -18,54 +18,40 @@ export default function Home({ setCurrentPage }: HomeProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="hero-gradient min-h-[560px] flex items-center pt-[70px] relative overflow-hidden">
-        {/* Futuristic Background Overlays */}
-        <div className="absolute inset-0 grid-bg-overlay opacity-50 pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-blue-500/10 rounded-full blur-[80px] pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[450px] h-[450px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none animate-pulse" style={{ animationDuration: '12s' }} />
-
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-blue-950/40 border border-blue-500/20 rounded-full px-4 py-1.5 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-              <span className="text-blue-400 text-[10px] md:text-xs font-semibold tracking-widest uppercase">
-                Advancing the Future of Cognitive Recovery
-              </span>
-            </div>
-            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 tracking-tight">
-              Intelligence Today.<br />
-              Recovery for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Tomorrow.</span>
-            </h1>
-            <div className="w-12 h-[3px] bg-blue-600 mb-6 rounded-full" />
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-8 max-w-md">
-              NeuraX Cognitive Solutions is building AI-enabled infrastructure for continuous neuro-recovery and better neurological outcomes. Driven by science. Built for the future.
-            </p>
-            <button onClick={() => setCurrentPage('Solutions')} className="btn-primary shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_4px_25px_rgba(37,99,235,0.5)] transition-all duration-300">
-              Explore Our Solutions <ArrowRight size={16} />
-            </button>
+      <section className="pt-[70px] relative overflow-hidden bg-[#000514] w-full">
+        {/* Wrapper to ensure perfect horizontal alignment and compact spacing */}
+        <div className="relative w-full py-6 md:py-8 lg:py-10 flex items-center">
+          {/* Background Image Banner */}
+          <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#000514]">
+            <img 
+              src="/assets/home_bg.webp" 
+              alt="Home Background" 
+              className="w-full h-full object-contain object-right opacity-100" 
+            />
           </div>
-          <div className="flex justify-center lg:justify-end relative">
-            <div className="relative w-full max-w-lg">
-              <img src="/assets/glowing_brain.png" alt="Glowing AI Brain" className="w-full h-auto object-contain filter drop-shadow-[0_0_50px_rgba(59,130,246,0.35)] animate-float" />
-              
-              {/* Floating Badge 1 */}
-              <div className="absolute top-[10%] -left-[5%] bg-slate-950/80 backdrop-blur-md border border-blue-500/30 rounded-full py-2 px-4 shadow-[0_10px_30px_rgba(59,130,246,0.2)] flex items-center gap-2 animate-float" style={{ animationDelay: '-1s' }}>
-                <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping" />
-                <span className="text-[10px] font-semibold text-white tracking-wider uppercase">AI Assessment</span>
-              </div>
 
-              {/* Floating Badge 2 */}
-              <div className="absolute top-[45%] -right-[5%] bg-slate-950/80 backdrop-blur-md border border-indigo-500/30 rounded-full py-2 px-4 shadow-[0_10px_30px_rgba(99,102,241,0.2)] flex items-center gap-2 animate-float" style={{ animationDelay: '-3s' }}>
-                <span className="w-2 h-2 rounded-full bg-indigo-400" />
-                <span className="text-[10px] font-semibold text-white tracking-wider uppercase">Real-Time Analytics</span>
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-blue-950/40 border border-blue-500/20 rounded-full px-4 py-1.5 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                <span className="text-blue-400 text-[10px] md:text-xs font-semibold tracking-widest uppercase">
+                  Advancing the Future of Cognitive Recovery
+                </span>
               </div>
-
-              {/* Floating Badge 3 */}
-              <div className="absolute bottom-[15%] left-[5%] bg-slate-950/80 backdrop-blur-md border border-emerald-500/30 rounded-full py-2 px-4 shadow-[0_10px_30px_rgba(16,185,129,0.2)] flex items-center gap-2 animate-float" style={{ animationDelay: '-5s' }}>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-[10px] font-semibold text-white tracking-wider uppercase">Neuro-Recovery</span>
-              </div>
+              <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 tracking-tight">
+                Intelligence Today.<br />
+                Recovery for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Tomorrow.</span>
+              </h1>
+              <div className="w-12 h-[3px] bg-blue-600 mb-6 rounded-full" />
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-8 max-w-md">
+                NeuraX Cognitive Solutions is building AI-enabled infrastructure for continuous neuro-recovery and better neurological outcomes. Driven by science. Built for the future.
+              </p>
+              <button onClick={() => setCurrentPage('Solutions')} className="btn-primary shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_4px_25px_rgba(37,99,235,0.5)] transition-all duration-300">
+                Explore Our Solutions <ArrowRight size={16} />
+              </button>
             </div>
+            {/* Empty right column to let the background illustration show through on the right */}
+            <div className="hidden lg:block" />
           </div>
         </div>
       </section>
@@ -117,32 +103,67 @@ export default function Home({ setCurrentPage }: HomeProps) {
               <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-3">Our Focus</p>
               <h2 className="text-white text-2xl md:text-3xl font-bold mb-1">Currently Advancing</h2>
               <h2 className="text-white text-2xl md:text-3xl font-bold mb-3">Through Clinical Validation</h2>
-              <div className="w-12 h-[3px] bg-blue-600 mb-8 rounded-full" />
+              <div className="w-12 h-[3px] bg-blue-600 mb-3 rounded-full" />
 
               {/* Progress steps */}
               <div 
-                className="flex items-start gap-2 mb-8 overflow-x-auto pb-2"
-                onMouseLeave={() => setActiveStep(2)}
+                className="flex items-start gap-2 mb-8 overflow-x-auto pt-6 pb-2"
+                onMouseLeave={() => setHoveredIndex(null)}
               >
                 {steps.map((step, i, arr) => {
-                  const isActive = activeStep === i;
+                  const isHovering = hoveredIndex !== null;
+                  const isHighlighted = isHovering ? hoveredIndex === i : i <= 2;
+                  const opacity = isHovering ? (hoveredIndex === i ? 1 : 0.3) : (i <= 2 ? 0.95 : 0.35);
+
+                  let circleClass = '';
+                  if (isHighlighted) {
+                    if (i === 2) {
+                      circleClass = 'border-blue-500 bg-blue-950/60 text-blue-400 shadow-[0_0_20px_rgba(59,130,246,0.5)]';
+                    } else {
+                      circleClass = 'border-blue-500/50 bg-blue-950/20 text-blue-300/90 shadow-[0_0_10px_rgba(59,130,246,0.15)]';
+                    }
+                  } else {
+                    circleClass = 'border-slate-800 bg-slate-900/40 text-slate-500';
+                  }
+
+                  let labelClass = '';
+                  if (isHighlighted) {
+                    labelClass = i === 2 ? 'text-blue-400 font-extrabold' : 'text-blue-400/80 font-semibold';
+                  } else {
+                    labelClass = 'text-slate-500';
+                  }
+
                   return (
                     <div 
                       key={i} 
                       className="flex items-start gap-1 flex-1 min-w-[140px] cursor-pointer"
-                      onMouseEnter={() => setActiveStep(i)}
-                      style={{ opacity: isActive ? 1 : 0.35, transition: 'all 0.3s ease' }}
+                      onMouseEnter={() => setHoveredIndex(i)}
+                      style={{ opacity, transition: 'all 0.3s ease' }}
                     >
                       <div className="flex flex-col items-center flex-1">
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 mb-3 ${isActive ? 'border-blue-500 bg-blue-950/50 text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.4)]' : 'border-slate-800 bg-slate-900/40 text-slate-500'} transition-all duration-300`}>
-                          {step.icon}
+                        <div className="relative w-12 h-12 mb-3">
+                          {/* Pulsing ring for current state */}
+                          {i === 2 && (
+                            <>
+                              <span className="absolute -inset-2 rounded-full bg-blue-500/25 animate-ping pointer-events-none z-0" />
+                              <span className="absolute -inset-1 rounded-full border border-blue-500/30 animate-pulse pointer-events-none z-0" />
+                            </>
+                          )}
+                          <div className={`w-full h-full rounded-full flex items-center justify-center border-2 ${circleClass} transition-all duration-300 relative z-10`}>
+                            {step.icon}
+                          </div>
                         </div>
-                        <p className={`text-xs font-bold text-center mb-1.5 ${isActive ? 'text-blue-400' : 'text-slate-300'} transition-colors duration-300`}>{step.label}</p>
+                        <p className={`text-xs text-center mb-1.5 flex items-center justify-center gap-1.5 ${labelClass} transition-colors duration-300`}>
+                          {i === 2 && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                          )}
+                          {step.label}
+                        </p>
                         <p className="text-[11px] text-gray-400 text-center leading-relaxed">{step.desc}</p>
                       </div>
                       {i < arr.length - 1 && (
                         <div className="mt-5 w-6 flex-shrink-0 flex items-center">
-                          <div className="h-[1px] w-full bg-slate-850" />
+                          <div className={`h-[1.5px] w-full ${i < 2 ? 'bg-blue-500/40 shadow-[0_0_4px_rgba(59,130,246,0.3)]' : 'bg-slate-850'}`} />
                         </div>
                       )}
                     </div>

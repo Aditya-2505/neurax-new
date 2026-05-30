@@ -16,7 +16,7 @@ export default function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-6 h-[70px] flex items-center justify-between">
         {/* Logo */}
         <button onClick={() => setCurrentPage('Home')} className="flex items-center">
-          <img src="/assets/logo.jpg" alt="NeuraX Cognitive Solutions" className="h-9 block rounded-sm" />
+          <img src="/assets/logo-removebg-preview.png" alt="NeuraX Cognitive Solutions" className="h-9 block" />
         </button>
  
         {/* Desktop Nav */}

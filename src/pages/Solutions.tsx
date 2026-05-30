@@ -8,26 +8,31 @@ export default function Solutions({ setCurrentPage }: SolutionsProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="hero-gradient min-h-[420px] flex items-center pt-[70px] relative overflow-hidden">
-        {/* Futuristic Background Overlays */}
-        <div className="absolute inset-0 grid-bg-overlay opacity-40 pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[80px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
-          <div>
-            <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">Our Solutions</p>
-            <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-4">
-              Comprehensive Solutions for Continuous Neuro-Recovery
-            </h1>
-            <div className="w-10 h-[3px] bg-blue-600 mb-6" />
-            <p className="text-gray-300 text-base leading-relaxed max-w-md">
-              NeuraX provides AI-enabled neurorehabilitation and cognitive monitoring solutions that extend beyond hospital walls, ensuring better recovery, better outcomes, and better lives.
-            </p>
+      <section className="pt-[70px] relative overflow-hidden bg-[#000a1e] w-full">
+        {/* Wrapper to ensure perfect horizontal alignment and compact spacing */}
+        <div className="relative w-full py-6 md:py-8 lg:py-10 flex items-center">
+          {/* Background Image Banner */}
+          <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#000a1e]">
+            <img 
+              src="/assets/solution_bg.webp" 
+              alt="Solutions Background" 
+              className="w-full h-full object-contain object-right opacity-100" 
+            />
           </div>
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-lg">
-              <img src="/assets/dashboard_ui.png" alt="Patient Overview Dashboard" className="w-full h-auto object-contain rounded-xl border border-[rgba(59,130,246,0.2)] filter drop-shadow-[0_0_30px_rgba(59,130,246,0.2)] animate-float" />
+
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
+            <div>
+              <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">Our Solutions</p>
+              <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-4">
+                Comprehensive Solutions for Continuous Neuro-Recovery
+              </h1>
+              <div className="w-10 h-[3px] bg-blue-600 mb-6" />
+              <p className="text-gray-300 text-base leading-relaxed max-w-md">
+                NeuraX provides AI-enabled neurorehabilitation and cognitive monitoring solutions that extend beyond hospital walls, ensuring better recovery, better outcomes, and better lives.
+              </p>
             </div>
+            {/* Empty right column to let the background illustration show through on the right */}
+            <div className="hidden lg:block" />
           </div>
         </div>
       </section>
@@ -82,7 +87,7 @@ export default function Solutions({ setCurrentPage }: SolutionsProps) {
               <img
                 src="/assets/glowing_brain.png"
                 alt="Brain"
-                className="w-20 h-20 object-cover rounded-lg opacity-80 brain-glow"
+                className="w-20 h-20 object-cover rounded-lg opacity-80 brain-glow blend-screen"
               />
             </div>
             <p className="text-gray-300 text-base font-medium max-w-md">

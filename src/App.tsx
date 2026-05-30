@@ -32,17 +32,51 @@ function renderPage(page: Page, setCurrentPage: (page: string) => void) {
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('Home');
+  const [displayPage, setDisplayPage] = useState<Page>('Home');
+  const [transitionState, setTransitionState] = useState<'idle' | 'exiting' | 'entering'>('idle');
 
   const handleSetPage = (page: string) => {
-    setCurrentPage(page as Page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const targetPage = page as Page;
+    if (targetPage === displayPage) return;
+
+    // Immediately highlight the navbar link
+    setCurrentPage(targetPage);
+    
+    // Start exit transition (fading and sliding left)
+    setTransitionState('exiting');
+    
+    setTimeout(() => {
+      // Swap content and scroll to top instantly while invisible
+      setDisplayPage(targetPage);
+      window.scrollTo({ top: 0 });
+      
+      // Position the new page transparently to the right
+      setTransitionState('entering');
+      
+      // Trigger entrance slide-in from the right
+      setTimeout(() => {
+        setTransitionState('idle');
+      }, 20);
+    }, 250);
   };
+
+  // Build the transition class mapping
+  let transitionClass = '';
+  if (transitionState === 'idle') {
+    transitionClass = 'opacity-100 translate-x-0 transition-all duration-300 ease-out';
+  } else if (transitionState === 'exiting') {
+    transitionClass = 'opacity-0 -translate-x-12 transition-all duration-250 ease-in';
+  } else if (transitionState === 'entering') {
+    transitionClass = 'opacity-0 translate-x-12 transition-none';
+  }
 
   return (
     <div className="min-h-screen bg-[#0a0e1a] flex flex-col">
       <Navbar currentPage={currentPage} setCurrentPage={handleSetPage} />
-      <main className="flex-1">
-        {renderPage(currentPage, handleSetPage)}
+      <main className="flex-1 overflow-hidden">
+        <div className={transitionClass}>
+          {renderPage(displayPage, handleSetPage)}
+        </div>
       </main>
       <Footer setCurrentPage={handleSetPage} />
     </div>

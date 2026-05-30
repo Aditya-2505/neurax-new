@@ -10,7 +10,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Logo */}
         <button onClick={() => setCurrentPage('Home')} className="flex items-center">
-          <img src="/assets/logo.jpg" alt="NeuraX" className="h-7 block rounded-sm opacity-80 hover:opacity-100 transition-opacity" />
+          <img src="/assets/logo-removebg-preview.png" alt="NeuraX" className="h-7 block opacity-85 hover:opacity-100 transition-opacity" />
         </button>
 
         {/* Copyright */}
@@ -25,7 +25,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
           <button onClick={() => setCurrentPage('Terms of Use')} className="hover:text-white transition-colors">Terms of Use</button>
           <span className="text-gray-600">|</span>
           <button onClick={() => setCurrentPage('Contact')} className="hover:text-white transition-colors">Contact</button>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="ml-2 text-gray-400 hover:text-white transition-colors">
+          <a href="https://www.linkedin.com/in/dr-varshini-md-103438212/" target="_blank" rel="noreferrer" className="ml-2 text-gray-400 hover:text-white transition-colors">
             <Linkedin size={18} />
           </a>
         </div>
