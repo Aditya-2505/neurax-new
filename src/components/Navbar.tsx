@@ -12,11 +12,11 @@ export default function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#030712]/80 backdrop-blur-lg border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-6 h-[70px] flex items-center justify-between">
         {/* Logo */}
         <button onClick={() => setCurrentPage('Home')} className="flex items-center">
-          <img src="/assets/logo-removebg-preview.png" alt="NeuraX Cognitive Solutions" className="h-9 block" />
+          <img src="/assets/logo-light-bg.png" alt="NeuraX Cognitive Solutions" className="h-11 block" />
         </button>
  
         {/* Desktop Nav */}
@@ -27,8 +27,8 @@ export default function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
               onClick={() => setCurrentPage(link)}
               className={`text-sm font-medium transition-colors relative pb-1 ${
                 currentPage === link
-                  ? 'text-blue-400 nav-active-underline'
-                  : 'text-gray-400 hover:text-white'
+                  ? 'text-blue-600 nav-active-underline'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               {link}
@@ -47,20 +47,20 @@ export default function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
         </div>
  
         {/* Mobile toggle */}
-        <button className="md:hidden text-white" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button className="md:hidden text-slate-800" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
  
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-[#030712]/95 backdrop-blur-lg border-t border-white/5 px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-slate-200/80 px-6 py-4 flex flex-col gap-4">
           {navLinks.map((link) => (
             <button
               key={link}
               onClick={() => { setCurrentPage(link); setMobileOpen(false); }}
               className={`text-sm font-medium text-left ${
-                currentPage === link ? 'text-blue-400' : 'text-gray-300'
+                currentPage === link ? 'text-blue-600 font-semibold' : 'text-slate-600'
               }`}
             >
               {link}

@@ -55,104 +55,99 @@ export default function Contact() {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-[70px] relative overflow-hidden bg-[#010619] w-full">
-        {/* Wrapper to ensure perfect horizontal alignment and compact spacing */}
-        <div className="relative w-full h-[380px] md:h-[460px] lg:h-[520px] flex items-center overflow-hidden">
-          {/* Background Image Banner */}
-          <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#010619]">
-            <img 
-              src="/assets/contact_bg.webp" 
-              alt="Contact Background" 
-              className="w-full h-full object-contain object-right opacity-100" 
-            />
+      <section className="pt-[70px] pb-12 relative overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-slate-50 w-full border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[380px] md:min-h-[460px] lg:min-h-[500px] w-full relative z-10">
+          <div>
+            <p className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-4">Partner With NeuraX</p>
+            <h1 className="text-slate-900 text-4xl md:text-5xl font-bold leading-tight mb-4">
+              Let's Build the Future of Neuro-Recovery <span className="text-blue-650 font-extrabold">Together.</span>
+            </h1>
+            <div className="w-10 h-[3px] bg-blue-600 mb-6" />
+            <p className="text-slate-655 text-base leading-relaxed max-w-md">
+              NeuraX is building the infrastructure for continuous cognitive recovery. We collaborate with forward-thinking partners who share our vision for better neurological outcomes.
+            </p>
           </div>
-
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
-            <div>
-              <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">Partner With NeuraX</p>
-              <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-4">
-                Let's Build the Future of Neuro-Recovery <span className="text-blue-500">Together.</span>
-              </h1>
-              <div className="w-10 h-[3px] bg-blue-600 mb-6" />
-              <p className="text-gray-300 text-base leading-relaxed max-w-md">
-                NeuraX is building the infrastructure for continuous cognitive recovery. We collaborate with forward-thinking partners who share our vision for better neurological outcomes.
-              </p>
-            </div>
-            {/* Empty right column to let the background illustration show through on the right */}
-            <div className="hidden lg:block" />
+          
+          {/* Client mockup photo in right column */}
+          <div className="hidden lg:block relative w-full h-[360px] xl:h-[400px]">
+            <img 
+              src="/assets/client_contact_hero.png" 
+              alt="NeuraX Application Showcase" 
+              className="w-full h-full object-cover rounded-2xl shadow-lg border border-slate-200/60" 
+            />
           </div>
         </div>
       </section>
 
       {/* Partnership Opportunities + Contact Form */}
-      <section className="py-20 relative overflow-hidden bg-[#030712]">
+      <section className="py-20 relative overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
           {/* Left: Partnership content */}
           <div className="lg:col-span-2 flex flex-col gap-8">
             {/* Partnership Opportunities */}
             <div>
-              <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-1">Partnership Opportunities</p>
+              <p className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-1">Partnership Opportunities</p>
               <div className="w-12 h-[3px] bg-blue-600 mb-6 mt-2 rounded-full" />
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
                   {
-                    icon: <Building2 size={28} className="text-blue-400" />,
+                    icon: <Building2 size={28} className="text-blue-600" />,
                     title: 'Hospitals & Clinics',
                     desc: 'Integrate NeuraX solutions into your care pathways to enhance patient recovery and outcomes.'
                   },
                   {
-                    icon: <Microscope size={28} className="text-blue-400" />,
+                    icon: <Microscope size={28} className="text-blue-600" />,
                     title: 'Rehabilitation Centers',
                     desc: 'Empower your programs with continuous cognitive monitoring and digital rehabilitation solutions.'
                   },
                   {
-                    icon: <Brain size={28} className="text-blue-400" />,
+                    icon: <Brain size={28} className="text-blue-600" />,
                     title: 'Research Collaborations',
                     desc: 'Partner with us to advance neuroscience research and co-develop evidence-based innovations.'
                   },
                   {
-                    icon: <Users size={28} className="text-blue-400" />,
+                    icon: <Users size={28} className="text-blue-600" />,
                     title: 'Strategic Partnerships',
                     desc: 'Work with us to shape the future of neurotechnology and create meaningful impact globally.'
                   }
                 ].map((item, i) => (
-                  <div key={i} className="glass-card rounded-2xl p-5 flex flex-col items-center text-center h-full">
-                    <div className="icon-circle mb-4 text-blue-400">
+                  <div key={i} className="glass-card rounded-2xl p-5 flex flex-col items-center text-center h-full bg-slate-50/20">
+                    <div className="icon-circle mb-4 text-blue-600">
                       {item.icon}
                     </div>
-                    <h3 className="text-white font-bold text-sm mb-2">{item.title}</h3>
-                    <p className="text-gray-400 text-[11px] leading-relaxed">{item.desc}</p>
+                    <h3 className="text-slate-900 font-bold text-sm mb-2">{item.title}</h3>
+                    <p className="text-slate-500 text-[11px] leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Clinical Validation Box */}
-            <div className="glass-panel rounded-2xl p-8">
+            <div className="glass-panel rounded-2xl p-8 bg-slate-50/25">
               <div className="flex items-start gap-6">
-                <div className="icon-circle flex-shrink-0 text-blue-400">
+                <div className="icon-circle flex-shrink-0 text-blue-600 bg-white">
                   <Shield size={28} />
                 </div>
                 <div>
-                  <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-2">Currently Advancing</p>
-                  <h3 className="text-white font-bold text-lg mb-2">Through Clinical Validation</h3>
+                  <p className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-2">Currently Advancing</p>
+                  <h3 className="text-slate-900 font-bold text-lg mb-2">Through Clinical Validation</h3>
                   <div className="w-12 h-[3px] bg-blue-600 mb-4 rounded-full" />
-                  <p className="text-gray-450 text-sm leading-relaxed mb-6">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6">
                     NeuraX is currently in development and undergoing early-stage clinical validation to ensure the highest standards of safety, accuracy, and clinical relevance.
                   </p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {[
-                      { icon: <FlaskConical size={16} className="text-blue-400" />, title: 'Research-Driven', desc: 'Grounded in neuroscience and clinical research' },
-                      { icon: <BookOpen size={16} className="text-blue-400" />, title: 'Clinically Guided', desc: 'Developed with input from neurologists and experts' },
-                      { icon: <Brain size={16} className="text-blue-400" />, title: 'AI-Enabled', desc: 'Intelligent systems for deeper cognitive insights' },
-                      { icon: <ArrowRight size={16} className="text-blue-400" />, title: 'Future-Focused', desc: 'Building scalable infrastructure for long-term impact' }
+                      { icon: <FlaskConical size={16} className="text-blue-600" />, title: 'Research-Driven', desc: 'Grounded in neuroscience and clinical research' },
+                      { icon: <BookOpen size={16} className="text-blue-600" />, title: 'Clinically Guided', desc: 'Developed with input from neurologists and experts' },
+                      { icon: <Brain size={16} className="text-blue-600" />, title: 'AI-Enabled', desc: 'Intelligent systems for deeper cognitive insights' },
+                      { icon: <ArrowRight size={16} className="text-blue-600" />, title: 'Future-Focused', desc: 'Building scalable infrastructure for long-term impact' }
                     ].map((item, i) => (
                       <div key={i} className="flex flex-col gap-2">
                         <div className="flex items-center gap-2">
                           {item.icon}
-                          <span className="text-white text-xs font-semibold">{item.title}</span>
+                          <span className="text-slate-900 text-xs font-bold">{item.title}</span>
                         </div>
-                        <p className="text-gray-400 text-[11px] leading-relaxed">{item.desc}</p>
+                        <p className="text-slate-500 text-[11px] leading-relaxed">{item.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -162,10 +157,10 @@ export default function Contact() {
           </div>
 
           {/* Right: Contact Form */}
-          <div className="glass-panel rounded-2xl p-8 h-fit">
-            <h2 className="text-white text-2xl font-bold mb-2">Send Us a Message</h2>
+          <div className="glass-panel rounded-2xl p-8 h-fit bg-slate-50/10">
+            <h2 className="text-slate-900 text-2xl font-bold mb-2">Send Us a Message</h2>
             <div className="w-12 h-[3px] bg-blue-600 mb-5 rounded-full" />
-            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+            <p className="text-slate-600 text-sm leading-relaxed mb-6">
               We'd love to hear from you. Tell us about your interest and our team will get back to you.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -200,7 +195,7 @@ export default function Contact() {
               <select
                 value={form.interest}
                 onChange={e => setForm({...form, interest: e.target.value})}
-                className={form.interest ? "text-white" : "text-[#4b5563]"}
+                className={form.interest ? "text-slate-900" : "text-slate-450"}
               >
                 <option value="">Primary Area of Interest (Optional)</option>
                 <option value="General Inquiry">General Inquiry</option>
@@ -222,7 +217,7 @@ export default function Contact() {
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="btn-primary justify-center mt-2 shadow-[0_4px_14px_rgba(37,99,235,0.25)] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-primary justify-center mt-2 shadow-[0_4px_14px_rgba(37,99,235,0.15)] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>Sending... <Loader2 size={16} className="animate-spin" /></>

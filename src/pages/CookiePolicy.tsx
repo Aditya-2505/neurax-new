@@ -17,13 +17,13 @@ export default function CookiePolicy() {
 
   return (
     <div className="pt-[70px]">
-      <section className="hero-gradient py-12">
+      <section className="hero-gradient py-12 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
-            <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-3">Legal</p>
-            <h1 className="text-white text-4xl font-bold mb-3">Cookie Policy</h1>
-            <p className="text-gray-400 text-sm mb-4">Last updated: May 20, 2025</p>
-            <p className="text-gray-300 text-sm leading-relaxed max-w-lg">
+            <p className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-3">Legal</p>
+            <h1 className="text-slate-900 text-4xl font-bold mb-3">Cookie Policy</h1>
+            <p className="text-slate-500 text-sm mb-4">Last updated: May 20, 2025</p>
+            <p className="text-slate-655 text-sm leading-relaxed max-w-lg">
               This Cookie Policy explains how NeuraX Cognitive Solutions Pvt. Ltd. ("NeuraX", "we", "our", "us") uses cookies and similar technologies on our website.
             </p>
           </div>
@@ -36,15 +36,15 @@ export default function CookiePolicy() {
       </section>
 
       {/* Content */}
-      <section className="py-16 relative overflow-hidden bg-[#030712]">
+      <section className="py-16 relative overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-4 gap-8 relative z-10">
           <div className="lg:col-span-1">
-            <div className="glass-panel rounded-2xl p-4 sticky top-24">
+            <div className="glass-panel rounded-2xl p-4 sticky top-24 bg-slate-50/50">
               {sections.map((s, i) => (
                 <button
                   key={i}
                   onClick={() => setActive(i)}
-                  className={`w-full text-left text-sm py-2 px-3 rounded mb-1 transition-colors ${active === i ? 'bg-blue-600 text-white font-semibold' : 'text-gray-400 hover:bg-slate-900/60 hover:text-white'}`}
+                  className={`w-full text-left text-sm py-2 px-3 rounded mb-1 transition-colors ${active === i ? 'bg-blue-600 text-white font-semibold' : 'text-slate-655 hover:bg-slate-100 hover:text-slate-900'}`}
                 >
                   {i + 1}. {s}
                 </button>
@@ -53,43 +53,43 @@ export default function CookiePolicy() {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="glass-panel rounded-2xl p-8 md:p-10">
+            <div className="glass-panel rounded-2xl p-8 md:p-10 bg-white">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 {[
                   {
-                    icon: <Cookie size={20} className="text-blue-400" />,
+                    icon: <Cookie size={20} className="text-blue-600" />,
                     title: '1. What Are Cookies?',
                     desc: 'Cookies are small text files stored on your device when you visit a website. They help websites remember your preferences and improve your experience.'
                   },
                   {
-                    icon: <Monitor size={20} className="text-blue-400" />,
+                    icon: <Monitor size={20} className="text-blue-600" />,
                     title: '2. How We Use Cookies',
                     desc: 'We use cookies to enhance website functionality, analyze site performance, understand user behavior, and personalize content.'
                   },
                   {
-                    icon: <Settings size={20} className="text-blue-400" />,
+                    icon: <Settings size={20} className="text-blue-600" />,
                     title: '4. Managing Cookies',
                     desc: 'You can control or delete cookies through your browser settings. Disabling cookies may affect the functionality of our website.'
                   },
                   {
-                    icon: <Globe size={20} className="text-blue-400" />,
+                    icon: <Globe size={20} className="text-blue-600" />,
                     title: '5. Third-Party Cookies',
                     desc: 'We may use third-party services (e.g., analytics providers) that set cookies to help us understand website traffic and usage.'
                   }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 bg-slate-900/40 rounded-xl p-4 border border-white/5">
-                    <div className="mt-0.5 flex-shrink-0 text-blue-400">{item.icon}</div>
+                  <div key={i} className="flex items-start gap-3 bg-slate-50/50 rounded-xl p-4 border border-slate-100">
+                    <div className="mt-0.5 flex-shrink-0 text-blue-600">{item.icon}</div>
                     <div>
-                      <h3 className="text-white font-bold text-sm mb-1">{item.title}</h3>
-                      <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
+                      <h3 className="text-slate-900 font-bold text-sm mb-1">{item.title}</h3>
+                      <p className="text-slate-550 text-xs leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
               <div className="mb-6">
-                <h3 className="text-white font-bold text-sm mb-3">3. Types of Cookies</h3>
-                <ul className="space-y-2 text-sm text-gray-300">
+                <h3 className="text-slate-900 font-bold text-sm mb-3">3. Types of Cookies</h3>
+                <ul className="space-y-2 text-sm text-slate-700 font-medium">
                   {[
                     { name: 'Essential Cookies', desc: 'Required for website operation' },
                     { name: 'Performance Cookies', desc: 'Help us analyse website usage' },
@@ -104,19 +104,19 @@ export default function CookiePolicy() {
                 </ul>
               </div>
 
-              <div className="space-y-4 text-gray-350 text-sm leading-relaxed">
+              <div className="space-y-4 text-slate-655 text-sm leading-relaxed">
                 <div>
-                  <h3 className="text-white font-bold mb-1">6. Updates</h3>
+                  <h3 className="text-slate-900 font-bold mb-1">6. Updates</h3>
                   <p>We may update this Cookie Policy from time to time. Changes will be posted on this page with the updated date.</p>
                 </div>
                 <div>
-                  <h3 className="text-white font-bold mb-1">7. Contact Us</h3>
-                  <p>For questions about this Cookie Policy, contact us at: <span className="text-blue-400">hello@neuraxcog.com</span></p>
+                  <h3 className="text-slate-900 font-bold mb-1">7. Contact Us</h3>
+                  <p>For questions about this Cookie Policy, contact us at: <span className="text-blue-600 font-semibold">hello@neuraxcog.com</span></p>
                 </div>
               </div>
 
-              <div className="bg-blue-950/20 rounded-lg p-4 border border-blue-900/30 mt-6">
-                <p className="text-gray-350 text-sm">By continuing to use our website, you consent to the use of cookies as described in this policy.</p>
+              <div className="bg-blue-50 rounded-lg p-4 border border-blue-100 mt-6">
+                <p className="text-slate-700 text-sm font-medium">By continuing to use our website, you consent to the use of cookies as described in this policy.</p>
               </div>
             </div>
           </div>

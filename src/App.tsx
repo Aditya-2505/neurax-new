@@ -71,7 +71,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0e1a] flex flex-col">
+    <div className="min-h-screen bg-slate-50 flex flex-col">
       <Navbar currentPage={currentPage} setCurrentPage={handleSetPage} />
       <main className="flex-1 overflow-hidden">
         <div className={transitionClass}>
