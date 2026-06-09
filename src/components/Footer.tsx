@@ -10,7 +10,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Logo */}
         <button onClick={() => setCurrentPage('Home')} className="flex items-center">
-          <img src="/assets/logo-light-bg.png" alt="NeuraX" className="h-8 block opacity-90 hover:opacity-100 transition-opacity" />
+          <img src="/assets/logo-light-bg-v3.png" alt="NeuraX" className="h-12 block opacity-90 hover:opacity-100 transition-opacity" />
         </button>
 
         {/* Copyright */}

@@ -4,35 +4,42 @@ export default function AboutUs() {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-[70px] pb-12 relative overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-slate-50 w-full border-b border-slate-100">
+      <section className="pt-[70px] pb-12 relative overflow-hidden bg-brandBg w-full border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[380px] md:min-h-[460px] lg:min-h-[500px] w-full relative z-10">
-          <div>
+          {/* Text in left column */}
+          <div className="order-1 lg:order-1 flex flex-col items-start">
             <p className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-4">About NeuraX</p>
             <h1 className="text-slate-900 text-4xl md:text-5xl font-bold leading-tight mb-4">
               Driven by Purpose.<br />Built for Impact.
             </h1>
             <div className="w-10 h-[3px] bg-blue-600 mb-6" />
-            <p className="text-slate-650 text-base leading-relaxed mb-4 max-w-md">
+            <p className="text-slate-655 text-base leading-relaxed mb-4 max-w-md">
               NeuraX Cognitive Solutions was founded with a simple belief — that every individual deserves the chance for a better recovery and a better quality of life after a neurological event.
             </p>
-            <p className="text-slate-650 text-base leading-relaxed max-w-md">
+            <p className="text-slate-655 text-base leading-relaxed max-w-md mb-6">
               We combine deep clinical understanding with advanced technology to build the future of cognitive care.
             </p>
           </div>
-          
+
           {/* Client doctor patient photo in right column */}
-          <div className="hidden lg:block relative w-full h-[360px] xl:h-[400px]">
+          <div className="order-2 lg:order-2 block w-full h-[300px] sm:h-[380px] lg:h-[400px] relative overflow-hidden rounded-2xl">
             <img 
               src="/assets/client_doctor_patient.jpg" 
               alt="Clinical Discussion of Brain Recovery Research" 
-              className="w-full h-full object-cover rounded-2xl shadow-lg border border-slate-200/60" 
+              className="w-full h-full object-cover" 
             />
+            {/* Soft Blending Gradients to dissolve into the background */}
+            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-brandBg to-transparent pointer-events-none lg:block hidden" />
+            <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-brandBg/60 to-transparent pointer-events-none lg:hidden block" />
+            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-brandBg via-brandBg/40 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-brandLight/80 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-1/12 bg-gradient-to-l from-brandBg/60 to-transparent pointer-events-none" />
           </div>
         </div>
       </section>
 
       {/* Mission / Vision / Values */}
-      <section className="py-16 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-slate-200/80 rounded-2xl overflow-hidden glass-panel bg-slate-50/20">
             {[
@@ -81,14 +88,14 @@ export default function AboutUs() {
       </section>
 
       {/* Founder + Advisors */}
-      <section className="py-20 relative overflow-hidden bg-slate-50 border-t border-b border-slate-200/60">
+      <section className="py-12 relative overflow-hidden bg-slate-50 border-t border-b border-slate-200/60">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
-          {/* Founder Dr. Varshini Profile */}
+          {/* Founder Dr Varshini Profile */}
           <div className="glass-panel rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-white">
             <div className="relative h-56 overflow-hidden border-b border-slate-200/60">
               <img
                 src="/assets/founder_portrait.png"
-                alt="Dr. Varshini, MD"
+                alt="Dr Varshini, MD"
                 className="w-full h-full object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent" />
@@ -102,12 +109,12 @@ export default function AboutUs() {
                   NeuraX was born from a deep passion for neuroscience and a first-hand understanding of the challenges patients and families face during recovery.
                 </p>
                 <p className="text-slate-650 text-sm leading-relaxed mb-6">
-                  Our founder, Dr. Varshini, MD, with a background in medicine and a keen interest in neurorehabilitation, envisioned a world where technology and empathy come together to transform lives.
+                  Our founder, Dr Varshini, MD, with a background in medicine and a keen interest in neurorehabilitation, envisioned a world where technology and empathy come together to transform lives.
                 </p>
               </div>
               <div className="pt-6 border-t border-slate-100 flex items-center justify-between flex-wrap gap-4 mt-auto">
                 <div>
-                  <h4 className="text-slate-900 font-bold text-base leading-tight">Dr. Varshini, MD</h4>
+                  <h4 className="text-slate-900 font-bold text-base leading-tight">Dr Varshini, MD</h4>
                   <p className="text-slate-500 text-xs mt-0.5 font-medium">Founder & Medical Lead</p>
                 </div>
                 <a

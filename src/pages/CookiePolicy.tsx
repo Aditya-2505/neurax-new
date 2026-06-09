@@ -111,7 +111,7 @@ export default function CookiePolicy() {
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold mb-1">7. Contact Us</h3>
-                  <p>For questions about this Cookie Policy, contact us at: <span className="text-blue-600 font-semibold">hello@neuraxcog.com</span></p>
+                  <p>For questions about this Cookie Policy, contact us at: <span className="text-blue-600 font-semibold">neuraxcognitivesolutions@gmail.com</span></p>
                 </div>
               </div>
 

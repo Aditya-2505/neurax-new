@@ -18,41 +18,42 @@ export default function Home({ setCurrentPage }: HomeProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-[70px] pb-12 relative overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-slate-50 w-full border-b border-slate-100">
+      <section className="pt-[70px] pb-12 relative overflow-hidden bg-brandBg w-full border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[380px] md:min-h-[460px] lg:min-h-[500px] w-full relative z-10">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 rounded-full px-4 py-1.5 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-              <span className="text-blue-600 text-[10px] md:text-xs font-semibold tracking-widest uppercase">
-                Advancing the Future of Cognitive Recovery
-              </span>
-            </div>
+          {/* Text in left column */}
+          <div className="order-1 lg:order-1 flex flex-col items-start">
             <h1 className="text-slate-900 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 tracking-tight">
               Intelligence Today.<br />
               Recovery for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Tomorrow.</span>
             </h1>
             <div className="w-12 h-[3px] bg-blue-600 mb-6 rounded-full" />
-            <p className="text-slate-650 text-base md:text-lg leading-relaxed mb-8 max-w-md">
+            <p className="text-slate-655 text-base md:text-lg leading-relaxed mb-8 max-w-md">
               NeuraX Cognitive Solutions is building AI-enabled infrastructure for continuous neuro-recovery and better neurological outcomes. Driven by science. Built for the future.
             </p>
             <button onClick={() => setCurrentPage('Solutions')} className="btn-primary shadow-[0_4px_20px_rgba(37,99,235,0.15)] hover:shadow-[0_4px_25px_rgba(37,99,235,0.3)] transition-all duration-300">
               Explore Our Solutions <ArrowRight size={16} />
             </button>
           </div>
-          
+
           {/* Client illustration photo in right column */}
-          <div className="hidden lg:block relative w-full h-[360px] xl:h-[400px]">
+          <div className="order-2 lg:order-2 block w-full h-[300px] sm:h-[380px] lg:h-[400px] relative overflow-hidden rounded-2xl">
             <img 
               src="/assets/client_futuristic_lab.jpg" 
               alt="NeuraX Neural Technology Laboratory" 
-              className="w-full h-full object-cover rounded-2xl shadow-lg border border-slate-200/60" 
+              className="w-full h-full object-cover" 
             />
+            {/* Soft Blending Gradients to dissolve into the background */}
+            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-brandBg to-transparent pointer-events-none lg:block hidden" />
+            <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-brandBg/60 to-transparent pointer-events-none lg:hidden block" />
+            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-brandBg via-brandBg/40 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-brandLight/80 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-1/12 bg-gradient-to-l from-brandBg/60 to-transparent pointer-events-none" />
           </div>
         </div>
       </section>
 
       {/* Features Bar */}
-      <section className="py-16 relative overflow-hidden bg-slate-50 border-b border-slate-200/60">
+      <section className="py-10 relative overflow-hidden bg-slate-50 border-b border-slate-200/60">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
           {[
             {
@@ -89,8 +90,29 @@ export default function Home({ setCurrentPage }: HomeProps) {
         </div>
       </section>
 
+      {/* Accelerator Section */}
+      <section className="py-10 relative overflow-hidden bg-white border-b border-slate-200/60">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+          <div className="flex-1">
+            <p className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-2">Accelerator</p>
+            <h2 className="text-slate-900 text-2xl md:text-3xl font-bold mb-4">Supported by Leading Ventures</h2>
+            <div className="w-12 h-[3px] bg-blue-600 mb-6 rounded-full" />
+            <p className="text-slate-600 text-sm leading-relaxed max-w-2xl">
+              NeuraX is supported by <strong>ISB - IVI (I-Venture Immersive)</strong>, the flagship venture building initiative of the Indian School of Business (ISB). This support helps scale our clinical innovations and accelerate development of AI-enabled neuro-recovery infrastructure.
+            </p>
+          </div>
+          <div className="flex-shrink-0 flex items-center justify-center w-full lg:w-auto bg-transparent">
+            <img 
+              src="/assets/isb-logo-v5.png" 
+              alt="Indian School of Business (ISB)" 
+              className="w-72 sm:w-80 md:w-96 lg:w-[380px] h-auto object-contain mix-blend-multiply opacity-95 hover:opacity-100 transition-opacity" 
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Current Focus + Connect */}
-      <section className="py-20 relative overflow-hidden bg-white">
+      <section className="py-8 relative overflow-hidden bg-slate-50/40">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
           {/* Left: Clinical Validation */}
           <div className="lg:col-span-2 glass-panel rounded-2xl p-8 md:p-10 flex flex-col justify-between relative overflow-hidden">
@@ -194,38 +216,38 @@ export default function Home({ setCurrentPage }: HomeProps) {
                 </defs>
                 
                 {/* Connecting lines */}
-                <line x1="120" y1="180" x2="160" y2="130" stroke="#3b82f6" strokeWidth="0.8" opacity="0.5" />
-                <line x1="160" y1="130" x2="190" y2="170" stroke="#3b82f6" strokeWidth="0.8" opacity="0.5" />
-                <line x1="190" y1="170" x2="150" y2="200" stroke="#3b82f6" strokeWidth="0.8" opacity="0.5" />
-                <line x1="150" y1="200" x2="120" y2="180" stroke="#3b82f6" strokeWidth="0.8" opacity="0.5" />
-                <line x1="120" y1="180" x2="190" y2="170" stroke="#3b82f6" strokeWidth="0.5" opacity="0.3" />
-                <line x1="160" y1="130" x2="150" y2="200" stroke="#3b82f6" strokeWidth="0.5" opacity="0.3" />
+                <line x1="120" y1="180" x2="160" y2="130" stroke="#5faee3" strokeWidth="0.8" opacity="0.5" />
+                <line x1="160" y1="130" x2="190" y2="170" stroke="#5faee3" strokeWidth="0.8" opacity="0.5" />
+                <line x1="190" y1="170" x2="150" y2="200" stroke="#5faee3" strokeWidth="0.8" opacity="0.5" />
+                <line x1="150" y1="200" x2="120" y2="180" stroke="#5faee3" strokeWidth="0.8" opacity="0.5" />
+                <line x1="120" y1="180" x2="190" y2="170" stroke="#5faee3" strokeWidth="0.5" opacity="0.3" />
+                <line x1="160" y1="130" x2="150" y2="200" stroke="#5faee3" strokeWidth="0.5" opacity="0.3" />
 
-                <line x1="80" y1="140" x2="120" y2="180" stroke="#3b82f6" strokeWidth="0.8" opacity="0.5" />
-                <line x1="80" y1="140" x2="110" y2="90" stroke="#3b82f6" strokeWidth="0.8" opacity="0.5" />
-                <line x1="110" y1="90" x2="160" y2="130" stroke="#3b82f6" strokeWidth="0.8" opacity="0.5" />
+                <line x1="80" y1="140" x2="120" y2="180" stroke="#5faee3" strokeWidth="0.8" opacity="0.5" />
+                <line x1="80" y1="140" x2="110" y2="90" stroke="#5faee3" strokeWidth="0.8" opacity="0.5" />
+                <line x1="110" y1="90" x2="160" y2="130" stroke="#5faee3" strokeWidth="0.8" opacity="0.5" />
                 
-                <line x1="150" y1="70" x2="110" y2="90" stroke="#3b82f6" strokeWidth="0.8" opacity="0.4" />
-                <line x1="150" y1="70" x2="160" y2="130" stroke="#3b82f6" strokeWidth="0.8" opacity="0.4" />
-                <line x1="150" y1="70" x2="195" y2="80" stroke="#3b82f6" strokeWidth="0.5" opacity="0.3" />
-                <line x1="195" y1="80" x2="160" y2="130" stroke="#3b82f6" strokeWidth="0.5" opacity="0.3" />
+                <line x1="150" y1="70" x2="110" y2="90" stroke="#5faee3" strokeWidth="0.8" opacity="0.4" />
+                <line x1="150" y1="70" x2="160" y2="130" stroke="#5faee3" strokeWidth="0.8" opacity="0.4" />
+                <line x1="150" y1="70" x2="195" y2="80" stroke="#5faee3" strokeWidth="0.5" opacity="0.3" />
+                <line x1="195" y1="80" x2="160" y2="130" stroke="#5faee3" strokeWidth="0.5" opacity="0.3" />
                 
-                <line x1="50" y1="170" x2="80" y2="140" stroke="#3b82f6" strokeWidth="0.6" opacity="0.4" />
-                <line x1="50" y1="170" x2="100" y2="190" stroke="#3b82f6" strokeWidth="0.6" opacity="0.4" />
-                <line x1="100" y1="190" x2="120" y2="180" stroke="#3b82f6" strokeWidth="0.8" opacity="0.5" />
-                <line x1="100" y1="190" x2="150" y2="200" stroke="#3b82f6" strokeWidth="0.8" opacity="0.5" />
+                <line x1="50" y1="170" x2="80" y2="140" stroke="#5faee3" strokeWidth="0.6" opacity="0.4" />
+                <line x1="50" y1="170" x2="100" y2="190" stroke="#5faee3" strokeWidth="0.6" opacity="0.4" />
+                <line x1="100" y1="190" x2="120" y2="180" stroke="#5faee3" strokeWidth="0.8" opacity="0.5" />
+                <line x1="100" y1="190" x2="150" y2="200" stroke="#5faee3" strokeWidth="0.8" opacity="0.5" />
                 
                 {/* Glowing node circles */}
-                <circle cx="120" cy="180" r="3.5" fill="#3b82f6" filter="url(#svg-glow-connect-light)" />
-                <circle cx="160" cy="130" r="4.5" fill="#2563eb" filter="url(#svg-glow-connect-light)" />
-                <circle cx="190" cy="170" r="3" fill="#2563eb" filter="url(#svg-glow-connect-light)" />
-                <circle cx="150" cy="200" r="3.5" fill="#3b82f6" filter="url(#svg-glow-connect-light)" />
-                <circle cx="80" cy="140" r="3.5" fill="#2563eb" filter="url(#svg-glow-connect-light)" />
-                <circle cx="110" cy="90" r="2.5" fill="#3b82f6" filter="url(#svg-glow-connect-light)" />
-                <circle cx="150" cy="70" r="3" fill="#2563eb" filter="url(#svg-glow-connect-light)" />
-                <circle cx="195" cy="80" r="2" fill="#3b82f6" filter="url(#svg-glow-connect-light)" />
-                <circle cx="50" cy="170" r="2.5" fill="#2563eb" filter="url(#svg-glow-connect-light)" />
-                <circle cx="100" cy="190" r="3" fill="#2563eb" filter="url(#svg-glow-connect-light)" />
+                <circle cx="120" cy="180" r="3.5" fill="#5faee3" filter="url(#svg-glow-connect-light)" />
+                <circle cx="160" cy="130" r="4.5" fill="#2561cd" filter="url(#svg-glow-connect-light)" />
+                <circle cx="190" cy="170" r="3" fill="#2561cd" filter="url(#svg-glow-connect-light)" />
+                <circle cx="150" cy="200" r="3.5" fill="#5faee3" filter="url(#svg-glow-connect-light)" />
+                <circle cx="80" cy="140" r="3.5" fill="#2561cd" filter="url(#svg-glow-connect-light)" />
+                <circle cx="110" cy="90" r="2.5" fill="#5faee3" filter="url(#svg-glow-connect-light)" />
+                <circle cx="150" cy="70" r="3" fill="#2561cd" filter="url(#svg-glow-connect-light)" />
+                <circle cx="195" cy="80" r="2" fill="#5faee3" filter="url(#svg-glow-connect-light)" />
+                <circle cx="50" cy="170" r="2.5" fill="#2561cd" filter="url(#svg-glow-connect-light)" />
+                <circle cx="100" cy="190" r="3" fill="#2561cd" filter="url(#svg-glow-connect-light)" />
             </svg>
 
             <div className="relative z-20 flex flex-col justify-between h-full min-h-[320px]">
@@ -247,7 +269,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
                   <div className="w-9 h-9 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0">
                     <Mail size={16} className="text-blue-600" />
                   </div>
-                  <a href="mailto:hello@neuraxcog.com" className="hover:text-blue-600 transition-colors font-medium">hello@neuraxcog.com</a>
+                  <a href="mailto:neuraxcognitivesolutions@gmail.com" className="hover:text-blue-600 transition-colors font-medium">neuraxcognitivesolutions@gmail.com</a>
                 </div>
               </div>
             </div>

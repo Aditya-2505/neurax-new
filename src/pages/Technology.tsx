@@ -8,32 +8,39 @@ export default function Technology({ setCurrentPage }: TechnologyProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-[70px] pb-12 relative overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-slate-50 w-full border-b border-slate-100">
+      <section className="pt-[70px] pb-12 relative overflow-hidden bg-brandBg w-full border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[380px] md:min-h-[460px] lg:min-h-[500px] w-full relative z-10">
-          <div>
+          {/* Text in left column */}
+          <div className="order-1 lg:order-1 flex flex-col items-start">
             <p className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-4">Our Technology</p>
             <h1 className="text-slate-900 text-4xl md:text-5xl font-bold leading-tight mb-4">
               The Intelligence Layer Behind Recovery
             </h1>
             <div className="w-10 h-[3px] bg-blue-600 mb-6" />
-            <p className="text-slate-650 text-base leading-relaxed max-w-md">
+            <p className="text-slate-655 text-base leading-relaxed max-w-md mb-6">
               NeuraX leverages advanced AI, data science, and neuroscience to deliver intelligent solutions for continuous cognitive recovery and better neurological outcomes.
             </p>
           </div>
-          
+
           {/* Client eeg session photo in right column */}
-          <div className="hidden lg:block relative w-full h-[360px] xl:h-[400px]">
+          <div className="order-2 lg:order-2 block w-full h-[300px] sm:h-[380px] lg:h-[400px] relative overflow-hidden rounded-2xl">
             <img 
               src="/assets/client_eeg_session.jpg" 
               alt="EEG Session and Neuro-Monitoring Technology" 
-              className="w-full h-full object-cover rounded-2xl shadow-lg border border-slate-200/60" 
+              className="w-full h-full object-cover" 
             />
+            {/* Soft Blending Gradients to dissolve into the background */}
+            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-brandBg to-transparent pointer-events-none lg:block hidden" />
+            <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-brandBg/60 to-transparent pointer-events-none lg:hidden block" />
+            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-brandBg via-brandBg/40 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-brandLight/80 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-1/12 bg-gradient-to-l from-brandBg/60 to-transparent pointer-events-none" />
           </div>
         </div>
       </section>
 
       {/* Core Technology Pillars */}
-      <section className="py-20 relative overflow-hidden bg-white">
+      <section className="py-12 relative overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
           {[
             {
@@ -70,7 +77,7 @@ export default function Technology({ setCurrentPage }: TechnologyProps) {
       </section>
 
       {/* Future Section */}
-      <section className="py-20 relative overflow-hidden bg-slate-50 border-t border-b border-slate-200/60">
+      <section className="py-12 relative overflow-hidden bg-slate-50 border-t border-b border-slate-200/60">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-4 gap-8 items-start relative z-10">
           {/* Left text */}
           <div className="lg:col-span-1">

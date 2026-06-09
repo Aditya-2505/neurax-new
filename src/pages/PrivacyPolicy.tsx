@@ -108,7 +108,7 @@ export default function PrivacyPolicy() {
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold mb-1">9. Contact Us</h3>
-                  <p>For privacy-related queries, contact us at: <span className="text-blue-600 font-semibold">hello@neuraxcog.com</span></p>
+                  <p>For privacy-related queries, contact us at: <span className="text-blue-600 font-semibold">neuraxcognitivesolutions@gmail.com</span></p>
                 </div>
               </div>
             </div>

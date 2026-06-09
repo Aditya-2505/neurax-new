@@ -46,7 +46,7 @@ export default function Contact() {
       setForm({ name: "", email: "", org: "", subject: "", interest: "", message: "" });
     } catch (error) {
       console.error("Submission error:", error);
-      alert("Something went wrong. Please try again or email hello@neuraxcog.com directly.");
+      alert("Something went wrong. Please try again or email neuraxcognitivesolutions@gmail.com directly.");
     } finally {
       setIsSubmitting(false);
     }
@@ -55,32 +55,39 @@ export default function Contact() {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-[70px] pb-12 relative overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-slate-50 w-full border-b border-slate-100">
+      <section className="pt-[70px] pb-12 relative overflow-hidden bg-brandBg w-full border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[380px] md:min-h-[460px] lg:min-h-[500px] w-full relative z-10">
-          <div>
+          {/* Text in left column */}
+          <div className="order-1 lg:order-1 flex flex-col items-start">
             <p className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-4">Partner With NeuraX</p>
             <h1 className="text-slate-900 text-4xl md:text-5xl font-bold leading-tight mb-4">
-              Let's Build the Future of Neuro-Recovery <span className="text-blue-650 font-extrabold">Together.</span>
+              Let's Build the Future of Neuro-Recovery <span className="text-blue-655 font-extrabold">Together.</span>
             </h1>
             <div className="w-10 h-[3px] bg-blue-600 mb-6" />
-            <p className="text-slate-655 text-base leading-relaxed max-w-md">
+            <p className="text-slate-655 text-base leading-relaxed max-w-md mb-6">
               NeuraX is building the infrastructure for continuous cognitive recovery. We collaborate with forward-thinking partners who share our vision for better neurological outcomes.
             </p>
           </div>
-          
+
           {/* Client mockup photo in right column */}
-          <div className="hidden lg:block relative w-full h-[360px] xl:h-[400px]">
+          <div className="order-2 lg:order-2 block w-full h-[300px] sm:h-[380px] lg:h-[400px] relative overflow-hidden rounded-2xl">
             <img 
               src="/assets/client_contact_hero.png" 
               alt="NeuraX Application Showcase" 
-              className="w-full h-full object-cover rounded-2xl shadow-lg border border-slate-200/60" 
+              className="w-full h-full object-cover" 
             />
+            {/* Soft Blending Gradients to dissolve into the background */}
+            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-brandBg to-transparent pointer-events-none lg:block hidden" />
+            <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-brandBg/60 to-transparent pointer-events-none lg:hidden block" />
+            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-brandBg via-brandBg/40 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-brandLight/80 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-1/12 bg-gradient-to-l from-brandBg/60 to-transparent pointer-events-none" />
           </div>
         </div>
       </section>
 
       {/* Partnership Opportunities + Contact Form */}
-      <section className="py-20 relative overflow-hidden bg-white">
+      <section className="py-12 relative overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
           {/* Left: Partnership content */}
           <div className="lg:col-span-2 flex flex-col gap-8">

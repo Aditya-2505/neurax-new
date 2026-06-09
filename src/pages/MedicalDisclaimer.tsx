@@ -113,7 +113,7 @@ export default function MedicalDisclaimer() {
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold mb-1">8. Contact Us</h3>
-                  <p>For questions about this Medical Disclaimer, contact us at: <span className="text-blue-600 font-semibold">hello@neuraxcog.com</span></p>
+                  <p>For questions about this Medical Disclaimer, contact us at: <span className="text-blue-600 font-semibold">neuraxcognitivesolutions@gmail.com</span></p>
                 </div>
               </div>
             </div>
